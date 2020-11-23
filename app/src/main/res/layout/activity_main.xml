@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="32dp"
+    android:background="#ffffe0"
+    tools:context=".MainActivity">
+
+
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:orientation="vertical"
+android:layout_gravity="center_vertical">
+<Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/gerir_items"
+    android:textSize="24sp"
+    android:padding="24dp"
+    android:onClick="onGerirItems"/>
+<Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/nova_lista"
+    android:onClick="onNovaLista"
+    android:textSize="24sp"
+    android:padding="24dp"/>
+<Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/escolher_lista"
+    android:onClick="onEscolherLista"
+    android:textSize="24sp"
+    android:padding="24dp"/>
+
+</LinearLayout>
+    </FrameLayout>

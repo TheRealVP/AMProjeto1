@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">AMProjeto1</string>
+    <string name="nova_lista">Nova Lista</string>
+    <string name="escolher_lista">Escolher Lista</string>
+    <string name="gerir_items">Gerir Items</string>
+    <string name="adicionar_item">Adicionar Item</string>
+    <string name="editar_item">Editar Item</string>
+    <string name="apagar_item">Apagar Item</string>
+
+</resources>
