@@ -11,9 +11,9 @@ const val DATABASE_VERSION = 1
 
 class MyDBHelper(context : Context) :
     SQLiteOpenHelper(context, DATABASE_NAME,null, DATABASE_VERSION) {
-    val createItems = "CREATE TABLE items ( id NUMBER, nome TEXT, marca TEXT, unidade TEXT, age NUMBER );"
+    val createItems = "CREATE TABLE items ( id NUMBER, nome TEXT, marca TEXT, unidade TEXT);"
     val createListas = "CREATE TABLE listas(id NUMBER, data DATE);"
-    val createItemLista = "CREATE TABLE items_listas(id_lista NUMBER, id_item NUMBER);"
+    val createItemLista = "CREATE TABLE items_listas(id_lista NUMBER, id_item NUMBER, num_item NUMBER);"
 
     override fun onCreate(db: SQLiteDatabase?) {
         db?.execSQL(createItems)

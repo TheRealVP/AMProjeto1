@@ -1,5 +1,6 @@
 package pt.isec.a2004009394.amprojeto1
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -20,7 +21,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
-    fun onGerirItems(view: View) {}
+    fun onGerirItems(view: View) {
+        val intent = Intent(this,GerirItems::class.java)
+        startActivity(intent)
+    }
     fun onNovaLista(view: View) {}
     fun onEscolherLista(view: View) {}
 }
