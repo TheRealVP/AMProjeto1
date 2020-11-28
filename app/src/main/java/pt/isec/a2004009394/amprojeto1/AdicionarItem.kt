@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import db.*
 
 class AdicionarItem : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,6 +26,8 @@ class AdicionarItem : AppCompatActivity() {
             val marca = R.id.item_marca
             val unidade = R.id.item_unidade
             val values = ContentValues()
+            var item : DBItem
+            insertItem(item)
             values.put("id",1)
             values.put("nome",nome)
             values.put("marca",marca)

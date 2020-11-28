@@ -36,25 +36,25 @@ android {
 
 dependencies {
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:${kotlin_version}"
     implementation 'androidx.core:core-ktx:1.2.0'
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 // Room and Lifecycle dependencies
-    implementation "androidx.room:room-runtime:2.3.0-alpha03"
-    implementation 'androidx.room:room-common:2.3.0-alpha03'
-    implementation 'androidx.room:room-compiler:2.3.0-alpha03'
-    implementation 'androidx.room:room-runtime:2.3.0-alpha03'
-    kapt "androidx.room:room-compiler:2.3.0-alpha03"
+    implementation 'androidx.room:room-runtime:2.2.1'
+    implementation 'androidx.room:room-common:2.2.1'
+    implementation 'androidx.room:room-compiler:2.2.1'
+    implementation 'androidx.room:room-runtime:2.2.1'
+    kapt 'androidx.room:room-compiler:2.2.1'
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
 
     // Kotlin Extensions and Coroutines support for Room
-    implementation "androidx.room:room-ktx:2.3.0-alpha03"
+    implementation 'androidx.room:room-ktx:2.2.1'
 
     // Coroutines
-   // implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version"
+    //implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version"
     //implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
     implementation 'com.github.chernovdmitriy.injectionholder:androidx:1.0.0'
     testImplementation 'junit:junit:4.+'

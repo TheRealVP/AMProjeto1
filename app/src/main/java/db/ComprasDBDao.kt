@@ -10,7 +10,7 @@ import androidx.room.Update
 interface ComprasDBDao {
 
     @Insert
-    suspend fun insertItem(item: Item)
+    suspend fun insertItem(item: DBItem)
 
     /**
      * When updating a row with a value already set in a column,
@@ -19,7 +19,7 @@ interface ComprasDBDao {
      * @param night new value to write
      */
     @Update
-    suspend  fun update(night: Item)
+    suspend  fun update(night: DBItem)
 
     /**
      * Selects and returns the row that matches the supplied start time, which is our key.
@@ -27,7 +27,7 @@ interface ComprasDBDao {
      * @param key startTimeMilli to match
      */
     @Query("SELECT * from items WHERE itemId = :key")
-    suspend fun get(key: Long): Item?
+    suspend fun get(key: Long): DBItem?
     /**
      * Deletes all values from the table.
      *
@@ -42,7 +42,7 @@ interface ComprasDBDao {
      * sorted by start time in descending order.
      */
     @Query("SELECT * FROM items ORDER BY itemId DESC")
-    fun getAllNights(): LiveData<List<Item>>
+    fun getAllNights(): LiveData<List<DBItem>>
 
     /**
      * Selects and returns the latest night.

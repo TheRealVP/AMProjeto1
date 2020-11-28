@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 
 @Entity(tableName = "items")
-data class Item(
+data class DBItem(
         @PrimaryKey(autoGenerate = true)
         var itemId: Long = 0L,
 

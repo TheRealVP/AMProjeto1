@@ -3,8 +3,8 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import db.ComprasDBDao
-import db.Item
-import db.Lista
+import db.DBItem
+import db.DBLista
 
 /**
  * A database that stores SleepNight information.
@@ -13,7 +13,7 @@ import db.Lista
  * This pattern is pretty much the same for any database,
  * so you can reuse it.
  */
-@Database(entities = [Item::class, Lista::class], version = 1, exportSchema = false)
+@Database(entities = [DBItem::class, DBLista::class], version = 1, exportSchema = false)
 abstract class ComprasDatabase : RoomDatabase() {
 
     /**
