@@ -42,7 +42,7 @@ interface ComprasDBDao {
      * sorted by start time in descending order.
      */
     @Query("SELECT * FROM items ORDER BY itemId DESC")
-    fun getAllNights(): LiveData<List<DBItem>>
+    fun getAllItems(): List<DBItem>
 
     /**
      * Selects and returns the latest night.

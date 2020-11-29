@@ -19,7 +19,7 @@ abstract class ComprasDatabase : RoomDatabase() {
     /**
      * Connects the database to the DAO.
      */
-    abstract val databaseDao: ComprasDBDao
+    abstract val comprasDBDao: ComprasDBDao
 
     companion object {
 

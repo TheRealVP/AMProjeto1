@@ -11,7 +11,7 @@ data class DBItem(
         var itemId: Long = 0L,
 
         @ColumnInfo(name = "nome")
-        val nome: String = "",
+        var nome: String = "",
 
         @ColumnInfo(name = "marca")
         var marca: String = "",
@@ -21,4 +21,6 @@ data class DBItem(
 
         @ColumnInfo(name = "preco")
         var preco: Int = 0
+
+
 )
