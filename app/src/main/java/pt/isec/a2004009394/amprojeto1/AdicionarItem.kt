@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.EditText
 import androidx.room.Room
 import com.github.chernovdmitriy.injectionholderx.InjectionHolderX.Companion.init
 import db.*
@@ -20,7 +21,7 @@ class AdicionarItem : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_adicionar_item)
 
-
+        this.findViewById<EditText>(R.id.item_nome)
     }
 
     suspend fun saveItem(view: View) {
@@ -36,13 +37,13 @@ class AdicionarItem : AppCompatActivity() {
 
            // val dbdao: ComprasDBDao
            // dbdao= ComprasDatabase.getInstance(application).comprasDBDao
-            val n= R.id.item_nome
-            val m = R.id.item_marca
-            val u = R.id.item_unidade
-            val values = ContentValues()
-            val item : DBItem
-            item = DBItem (0, n.toString(),m.toString(),u.toString(),0)
+            var n= findViewById<EditText>(R.id.item_nome)
+            val m = findViewById<EditText>(R.id.item_marca)
+            val u = findViewById<EditText>(R.id.item_unidade)
 
+            val item : DBItem
+            item = DBItem (0, n.text.toString(),m.text.toString(),u.text.toString(),0)
+            Log.i("item", "$item.nome ${item.marca}")
         //    item.nome = nome.toString()
             db.comprasDBDao.insertItem(item)/*
             values.put("id",1)

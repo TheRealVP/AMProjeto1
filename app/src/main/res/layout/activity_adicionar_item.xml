@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:text="Indique o titulo"
+            android:text="Nome do Item"
             android:maxLines="1"
 
             ></EditText>
