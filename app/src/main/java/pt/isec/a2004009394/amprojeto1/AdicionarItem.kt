@@ -1,6 +1,5 @@
 package pt.isec.a2004009394.amprojeto1
 
-import ComprasDatabase
 import android.content.ContentValues
 import android.database.Cursor
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +13,8 @@ import kotlinx.android.synthetic.main.activity_adicionar_item.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
+var DB_NOME = "sleep_history_database"
+
 class AdicionarItem : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,12 +23,14 @@ class AdicionarItem : AppCompatActivity() {
 
     }
 
-    suspend fun saveItem() {
+    suspend fun saveItem(view: View) {
+
         if(applicationContext!=null)
         {
 
            // val dbh= MyDBHelper(applicationContext)
-           val db = Room.databaseBuilder(applicationContext!!, ComprasDatabase::class.java, "myroomdb.db")
+            //val db = ComprasDatabase.getInstance(applicationContext)
+           val db = Room.databaseBuilder(applicationContext!!, ComprasDatabase::class.java, DB_NOME)
                     .build()
 
 
@@ -56,7 +59,7 @@ class AdicionarItem : AppCompatActivity() {
         sb = ""
         if (applicationContext != null) {
 
-            val db = Room.databaseBuilder(applicationContext!!, ComprasDatabase::class.java, "myroomdb.db")
+            val db = Room.databaseBuilder(applicationContext!!, ComprasDatabase::class.java, DB_NOME)
                     .build()
        //     val dbdao: ComprasDBDao
        //     dbdao= ComprasDatabase.getInstance(application).comprasDBDao
@@ -81,7 +84,7 @@ class AdicionarItem : AppCompatActivity() {
 
     fun gravarItem(view: View) {
         GlobalScope.launch {
-            saveItem()
+            saveItem(view)
         }
 
     }

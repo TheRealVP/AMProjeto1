@@ -1,10 +1,10 @@
+package db
+
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import db.ComprasDBDao
-import db.DBItem
-import db.DBLista
+
 
 /**
  * A database that stores SleepNight information.
@@ -21,7 +21,7 @@ abstract class ComprasDatabase : RoomDatabase() {
      */
     abstract val comprasDBDao: ComprasDBDao
 
-    companion object {
+   /* companion object {
 
         @Volatile
         private var INSTANCE: ComprasDatabase? = null
@@ -41,7 +41,7 @@ abstract class ComprasDatabase : RoomDatabase() {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         ComprasDatabase::class.java,
-                        "sleep_history_database"
+                        "comprasdatabase"
                     )
                         // Wipes and rebuilds instead of migrating if no Migration object.
                         // Migration is not part of this lesson. You can learn more about
@@ -57,5 +57,5 @@ abstract class ComprasDatabase : RoomDatabase() {
                 return instance
             }
         }
-    }
+    }*/
 }
