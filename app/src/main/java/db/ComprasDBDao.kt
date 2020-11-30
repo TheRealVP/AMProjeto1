@@ -1,10 +1,7 @@
 package db
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 
 @Dao
 interface ComprasDBDao {
@@ -20,7 +17,6 @@ interface ComprasDBDao {
      */
     @Update
     suspend  fun update(night: DBItem)
-
     /**
      * Selects and returns the row that matches the supplied start time, which is our key.
      *
@@ -33,8 +29,11 @@ interface ComprasDBDao {
      *
      * This does not delete the table, only its contents.
      */
-    @Query("DELETE FROM items")
-    suspend fun clear()
+    @Query("INSERT INTO listas(preco_total) VALUES(0)")
+    suspend fun newList()
+
+    @Query("DELETE FROM items where itemID = :key")
+    suspend fun clear(key: Long)
 
     /**
      * Selects and returns all rows in the table,

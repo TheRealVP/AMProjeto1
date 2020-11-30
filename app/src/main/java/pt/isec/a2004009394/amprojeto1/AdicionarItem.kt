@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.activity_adicionar_item.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-var DB_NOME = "sleep_history_database"
+var DB_NOME = "comprasdb"
 
 class AdicionarItem : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -78,10 +78,7 @@ class AdicionarItem : AppCompatActivity() {
             Log.i("result", "$sb")
         }
     }
-    fun getID()
-    {
 
-    }
 
     fun gravarItem(view: View) {
         GlobalScope.launch {

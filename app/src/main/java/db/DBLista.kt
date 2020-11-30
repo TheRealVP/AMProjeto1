@@ -12,9 +12,6 @@ data class DBLista(
     @PrimaryKey(autoGenerate = true)
     var listaId: Long = 0L,
 
-    @ColumnInfo(name ="itemId")
-    var itemId: Long = 0L,
-
-    @ColumnInfo(name = "quantidade")
-    var preco: Int = 0
+    @ColumnInfo(name = "preco_total")
+    var preco_total: Int = 0
 )
