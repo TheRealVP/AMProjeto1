@@ -30,8 +30,6 @@ class NovaLista : AppCompatActivity() {
         {
 
             db.comprasDBDao.newList()
-           
-
             if(item != null)
             {
                 lista_criada=true
