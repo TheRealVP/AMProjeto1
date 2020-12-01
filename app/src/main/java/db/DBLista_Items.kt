@@ -14,5 +14,5 @@ data class DBLista_Items(
         var itemId: Long = 0L,
 
         @ColumnInfo(name = "quantidade")
-        var preco: Int = 0
+        var quantidade: Int = 0
 )

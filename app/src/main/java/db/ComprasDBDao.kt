@@ -17,11 +17,17 @@ interface ComprasDBDao {
      */
     @Update
     suspend  fun update(night: DBItem)
+
+    @Query("INSERT INTO lista_items values(:listaId , :itemId, :quant)")
+    suspend fun addToLista(itemId : Long, listaId: Long, quant:Int)
     /**
      * Selects and returns the row that matches the supplied start time, which is our key.
      *
      * @param key startTimeMilli to match
      */
+    @Query("UPDATE listas SET preco_total=preco_total+:preco WHERE listaId=:id ")
+    suspend fun atualizaListaPreco(id:Long, preco:Int)
+
     @Query("SELECT * from items WHERE itemId = :key")
     suspend fun get(key: Long): DBItem?
     /**
@@ -31,6 +37,9 @@ interface ComprasDBDao {
      */
     @Query("INSERT INTO listas(preco_total) VALUES(0)")
     suspend fun newList()
+
+    @Query("SELECT MAX(listaId) from LISTAS")
+    suspend fun getMaxLista() : Long
 
     @Query("DELETE FROM items where itemID = :key")
     suspend fun clear(key: Long)
