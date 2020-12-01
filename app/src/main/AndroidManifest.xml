@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AMProjeto1">
-        <activity android:name=".escolher_lista"></activity>
+        <activity android:name=".EscolherLista"></activity>
         <activity android:name=".NovaLista" />
         <activity android:name=".EliminarItem" />
         <activity android:name=".AdicionarItem" />

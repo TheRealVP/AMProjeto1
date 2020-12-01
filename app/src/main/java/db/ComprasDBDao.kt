@@ -38,20 +38,28 @@ interface ComprasDBDao {
     @Query("INSERT INTO listas(preco_total) VALUES(0)")
     suspend fun newList()
 
-    @Query("SELECT MAX(listaId) from LISTAS")
+    @Query("SELECT MAX(listaId) FROM listas")
     suspend fun getMaxLista() : Long
 
     @Query("DELETE FROM items where itemID = :key")
     suspend fun clear(key: Long)
 
+    @Query("SELECT itemId from LISTA_ITEMS where listaId=:lid")
+    suspend fun getLists(lid: Long) : Long
     /**
      * Selects and returns all rows in the table,
      *
      * sorted by start time in descending order.
      */
     @Query("SELECT * FROM items ORDER BY itemId DESC")
-    fun getAllItems(): List<DBItem>
+    suspend fun getAllItems(): List<DBItem>
 
+
+    @Query("SELECT * FROM items ORDER BY nome ASC")
+    suspend fun getAllItemsByAscName(): List<DBItem>
+
+    @Query("SELECT * FROM items ORDER BY nome DESC")
+    suspend fun getAllItemsByDescName(): List<DBItem>
     /**
      * Selects and returns the latest night.
      */
