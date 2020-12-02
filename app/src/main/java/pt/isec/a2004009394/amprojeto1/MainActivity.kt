@@ -25,6 +25,12 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this,GerirItems::class.java)
         startActivity(intent)
     }
-    fun onNovaLista(view: View) {}
-    fun onEscolherLista(view: View) {}
+    fun onNovaLista(view: View) {
+        val intent = Intent(this,NovaLista::class.java)
+        startActivity(intent)
+    }
+    fun onEscolherLista(view: View) {
+        val intent = Intent(this,EscolherLista::class.java)
+        startActivity(intent)
+    }
 }
