@@ -55,7 +55,7 @@ class AdicionarItem : AppCompatActivity() {
         }
         checkResult()
     }
-    fun checkResult() {
+    suspend fun checkResult() {
         var sb: String
         sb = ""
         if (applicationContext != null) {
