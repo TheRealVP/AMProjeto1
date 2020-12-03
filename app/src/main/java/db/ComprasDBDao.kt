@@ -9,6 +9,9 @@ interface ComprasDBDao {
     @Insert
     suspend fun insertItem(item: DBItem)
 
+    @Insert
+    suspend fun insertLista(lista: DBLista)
+
     /**
      * When updating a row with a value already set in a column,
      * replaces the old value with the new one.
@@ -38,7 +41,7 @@ interface ComprasDBDao {
      *
      * This does not delete the table, only its contents.
      */
-    @Query("INSERT INTO listas(preco_total) VALUES(0)")
+    @Query("INSERT INTO listas(listaId,preco_total) VALUES(0,0)")
     suspend fun newList()
 
     @Query("SELECT MAX(listaId) FROM listas")
@@ -54,9 +57,12 @@ interface ComprasDBDao {
      *
      * sorted by start time in descending order.
      */
-    @Query("SELECT * FROM items ORDER BY itemId DESC")
+    @Query("SELECT * FROM items ORDER BY itemId ASC")
     suspend fun getAllItems(): List<DBItem>
 
+
+    @Query("SELECT * FROM listas ORDER BY listaId ASC")
+    suspend fun getAllLists(): List<DBLista>
 
     @Query("SELECT * FROM items ORDER BY nome ASC")
     suspend fun getAllItemsByAscName(): List<DBItem>

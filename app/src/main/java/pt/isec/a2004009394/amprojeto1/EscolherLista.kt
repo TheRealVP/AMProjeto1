@@ -19,10 +19,18 @@ class EscolherLista : AppCompatActivity() {
 
     }
 
+    suspend fun chooseList()
+    {
+        val db = Room.databaseBuilder(applicationContext!!, ComprasDatabase::class.java, DB_NOME).build()
+        val x = db.comprasDBDao.getAllLists()
+        for( toshi in x)
+            Log.i("list", "${toshi.listaId}")
+    }
     suspend fun orderByNameAsc(lista_id : Long)
     {
         val db = Room.databaseBuilder(applicationContext!!, ComprasDatabase::class.java, DB_NOME)
                 .build()
+        
         val listAsc = db.comprasDBDao.getAllItemsByAscName()
         val item_ids= db.comprasDBDao.getLists(lista_id)
         val itemsInList=  ArrayList<DBItem>()
@@ -69,10 +77,11 @@ class EscolherLista : AppCompatActivity() {
     fun selectByOrder()
     {
         GlobalScope.launch {
-            if(orderby==0)
-                orderByNameAsc(0)
+/*            if(orderby==0)
+                orderByNameAsc(1)
             if(orderby==1)
-                orderByNameDesc(0)
+                orderByNameDesc(1)*/
+            chooseList()
         }
     }
 
