@@ -25,6 +25,9 @@ interface ComprasDBDao {
      *
      * @param key startTimeMilli to match
      */
+    @Query("UPDATE items SET nome=:nome, marca=:marca, unidade=:unidade, preco=:preco where itemId=:id")
+    suspend fun updateItem(id : Long, nome: String, marca:String, unidade:String, preco:Int)
+
     @Query("UPDATE listas SET preco_total=preco_total+:preco WHERE listaId=:id ")
     suspend fun atualizaListaPreco(id:Long, preco:Int)
 
