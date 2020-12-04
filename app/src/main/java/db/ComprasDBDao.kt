@@ -50,13 +50,15 @@ interface ComprasDBDao {
     @Query("DELETE FROM items where itemID = :key")
     suspend fun clear(key: Long)
 
-    @Query("SELECT itemId from LISTA_ITEMS where listaId=:lid")
-    suspend fun getLists(lid: Long) : Long
+    @Query("SELECT * from LISTA_ITEMS where listaId=:lid")
+    suspend fun getLists(lid: Long) : List<DBLista_Items>
     /**
      * Selects and returns all rows in the table,
      *
      * sorted by start time in descending order.
      */
+
+
     @Query("SELECT * FROM items ORDER BY itemId ASC")
     suspend fun getAllItems(): List<DBItem>
 
@@ -72,6 +74,6 @@ interface ComprasDBDao {
     /**
      * Selects and returns the latest night.
      */
-  //  @Query("SELECT * FROM daily_sleep_quality_table ORDER BY nightId DESC LIMIT 1")
-  //  suspend fun getTonight(): SleepNight?
+    @Query("SELECT preco_total from listas where listaId=:lid")
+    suspend fun getPrecoTotal(lid: Long) : Int
 }

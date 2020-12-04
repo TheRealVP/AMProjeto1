@@ -39,6 +39,7 @@ class NovaLista : AppCompatActivity() {
                 lista_criada=true
                 var listaid : Long = db.comprasDBDao.getMaxLista()
                 n_lista= listaid
+                Log.i("n_lista", "$n_lista")
                 db.comprasDBDao.atualizaListaPreco(n_lista, item.preco*quant)
                 db.comprasDBDao.addToLista(item.itemId,n_lista,quant)
 
