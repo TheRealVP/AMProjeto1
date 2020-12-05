@@ -40,9 +40,9 @@ class AdicionarItem : AppCompatActivity() {
             var n= findViewById<EditText>(R.id.item_nome)
             val m = findViewById<EditText>(R.id.item_marca)
             val u = findViewById<EditText>(R.id.item_unidade)
-
+            val p = findViewById<EditText>(R.id.item_preco)
             val item : DBItem
-            item = DBItem (0, n.text.toString(),m.text.toString(),u.text.toString(),0)
+            item = DBItem (0, n.text.toString(),m.text.toString(),u.text.toString(),p.text.toString().toInt())
             Log.i("item", "$item.nome ${item.marca}")
         //    item.nome = nome.toString()
             db.comprasDBDao.insertItem(item)/*
