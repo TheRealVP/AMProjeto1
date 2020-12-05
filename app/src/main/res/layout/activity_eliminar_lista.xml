@@ -1,0 +1,33 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/linear_layout"
+    android:gravity="center">
+    <TextView
+        android:id="@+id/txtView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Item ID:"
+        android:textSize = "20dp" />
+
+    <Spinner
+        android:id="@+id/spinnerListas3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/txtView"/>
+
+    <TextView
+        android:id="@+id/textListas3"
+        android:layout_width="411dp"
+        android:layout_height="313dp"
+        android:text="Loading..."
+        android:textSize="15dp" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:onClick="onEliminar"
+        android:text="Eliminar"
+        />
+</LinearLayout >

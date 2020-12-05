@@ -50,6 +50,12 @@ interface ComprasDBDao {
     @Query("DELETE FROM items where itemID = :key")
     suspend fun clear(key: Long)
 
+    @Query("DELETE FROM listas where listaId = :key")
+    suspend fun clearLista(key: Long)
+
+    @Query("DELETE FROM lista_items where listaId = :key")
+    suspend fun clearListaItem(key: Long)
+
     @Query("SELECT * from LISTA_ITEMS where listaId=:lid")
     suspend fun getLists(lid: Long) : List<DBLista_Items>
     /**

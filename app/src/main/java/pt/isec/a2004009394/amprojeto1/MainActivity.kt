@@ -33,4 +33,8 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this,EscolherLista::class.java)
         startActivity(intent)
     }
+    fun onApagarLista(view: View) {
+        val intent = Intent(this,EliminarLista::class.java)
+        startActivity(intent)
+    }
 }
