@@ -32,7 +32,7 @@ class EscolherLista : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_escolher_lista)
-
+        listas = findViewById<TextView>(R.id.textListas)
         selectByOrder()
 
     }
@@ -44,7 +44,7 @@ class EscolherLista : AppCompatActivity() {
             Log.i("list", "${toshi.listaId}")
         return x
     }
-    suspend fun orderByNameAsc(lista_id : Long)
+    suspend fun orderByNameAsc(lista_id : Long) : String
     {
         val db = Room.databaseBuilder(applicationContext!!, ComprasDatabase::class.java, DB_NOME)
                 .build()
@@ -64,10 +64,10 @@ class EscolherLista : AppCompatActivity() {
             }
 
         }
-        printList(itemsInList, total)
+        return printList(itemsInList, total)
 
     }
-    suspend fun orderByNameDesc(lista_id : Long)
+    suspend fun orderByNameDesc(lista_id : Long) :String
     {
         val db = Room.databaseBuilder(applicationContext!!, ComprasDatabase::class.java, DB_NOME)
                 .build()
@@ -85,17 +85,22 @@ class EscolherLista : AppCompatActivity() {
                     }
                 }
             }
-        printList(itemsInList, total)
+        return printList(itemsInList, total)
 
     }
 
-    fun printList(a : ArrayList<ItemQuant>, total :Int)
+    fun printList(a : ArrayList<ItemQuant>, total :Int) :String
     {
+        var ret : String =""
         for( i in a)
         {
             Log.i("item",i.print())
+            ret = ret + i.print() + "\n"
         }
         Log.i("total",total.toString())
+        ret = ret + "Total: €" + total.toString()
+        Log.i("ret",ret)
+        return ret
     }
     fun selectByOrder()
     {
@@ -115,11 +120,16 @@ class EscolherLista : AppCompatActivity() {
                     AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>,
                                             view: View, position: Int, id: Long) {
+                    var listtext : String = ""
+                    listas.setText("loading...")
                     GlobalScope.launch {
                if(orderby==0)
-                orderByNameAsc(ids.get(position).toLong())
+                   listtext  = orderByNameAsc(ids.get(position).toLong())
             if(orderby==1)
-                orderByNameDesc(ids.get(position).toLong())}
+                listtext  =orderByNameDesc(ids.get(position).toLong())
+                    Log.i("listtext", listtext)}
+                    Thread.sleep(1000)
+                    listas.setText(listtext)
                     //remakeItem(ids.get(position).toLong()
                 }
 

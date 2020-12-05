@@ -20,7 +20,9 @@
 
     <TextView
         android:id="@+id/textListas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_width="411dp"
+        android:layout_height="313dp"
+        android:text="Loading..."
+        android:textSize="15dp" />
 
 </LinearLayout >
