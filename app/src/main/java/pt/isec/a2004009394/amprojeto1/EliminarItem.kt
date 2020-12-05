@@ -24,9 +24,16 @@ suspend fun eliminar (view : View)
         //val db = ComprasDatabase.getInstance(applicationContext)
         val db = Room.databaseBuilder(applicationContext!!, ComprasDatabase::class.java, DB_NOME)
                 .build()
-        var n  = findViewById<EditText>(R.id.item_id).text
+        var n  = findViewById<EditText>(R.id.item_id).text.toString().toLong()
 
-        db.comprasDBDao.clear(n.toString().toLong())
+        var pr= db.comprasDBDao.getPreco(n)
+        var onlista= db.comprasDBDao.getOnLista(n)
+        for(i in onlista)
+        {
+            db.comprasDBDao.atualizaListaPreco(i.listaId,(pr*i.quantidade*-1))
+        }
+        db.comprasDBDao.eliminaItems(n)
+        db.comprasDBDao.clear(n)
 
     }
 }

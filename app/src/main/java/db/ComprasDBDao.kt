@@ -76,4 +76,14 @@ interface ComprasDBDao {
      */
     @Query("SELECT preco_total from listas where listaId=:lid")
     suspend fun getPrecoTotal(lid: Long) : Int
+
+    @Query("DELETE FROM LISTA_ITEMS where itemId=:lid")
+    suspend fun eliminaItems(lid:Long)
+
+    @Query("SELECT preco from items where itemId=:lid")
+    suspend fun getPreco(lid:Long) : Int
+
+    @Query("SELECT * from LISTA_ITEMS where itemId=:lid")
+    suspend fun getOnLista(lid:Long) : List<DBLista_Items>
+
 }

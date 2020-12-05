@@ -19,5 +19,8 @@ class GerirItems : AppCompatActivity() {
         val intent = Intent(this,EditarItem::class.java)
         startActivity(intent)
     }
-    fun onApagarItem(view: View) {}
+    fun onApagarItem(view: View) {
+        val intent = Intent(this,EliminarItem::class.java)
+        startActivity(intent)
+    }
 }
